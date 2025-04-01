@@ -188,7 +188,7 @@ function triggerChat(id) {
         "error4": "Yeah, don't look at that.",
         "error5": "Why would you ignore that?",
         "error6": "DON'T IGNORE ME!!!",
-        "error7": "Do you not love me?"
+        "error7": "Do you not love me anymore?"
     };
     if (chatMessages[id]) createChatBubble(chatMessages[id]);
 }
