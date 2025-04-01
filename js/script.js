@@ -6,7 +6,7 @@ audio.loop = true;  // Set the sound to loop
 
 document.addEventListener("DOMContentLoaded", function() {
     setTimeout(() => {
-        openPopup('error1', 'Welcome to Windows25', ':) ');
+        openPopup('error1', 'Welcome back to Windows25', ':) ');
     }, 500);
 });
 
