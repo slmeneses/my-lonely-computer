@@ -1,8 +1,10 @@
-let closedPopupsCount = 0; // Track number of closed popups
-let glitchPlayed = false;  // Ensure glitch effect only plays once every 5 popups closed
-let popupCount = 0;  // Track the total number of popups opened
-let audio = new Audio('glitchy-star-sounds.mp3'); // Windows loading sound
-audio.loop = true;  // Set the sound to loop
+//a majority of this is thanks to the lovely chatgpt//
+
+let closedPopupsCount = 0; 
+let glitchPlayed = false; 
+let popupCount = 0;  
+let audio = new Audio('glitchy-star-sounds.mp3'); 
+audio.loop = true;  
 
 document.addEventListener("DOMContentLoaded", function() {
     setTimeout(() => {
@@ -59,58 +61,56 @@ function openPopup(id, title, message, imgSrc) {
 
         if (id === "error3") {
             imgElement.onclick = function() {
-                audio.play();  // Start the audio when the image is clicked
+                audio.play();  
             };
         }
     }
 
-    // Add "Click here to claim" button to trigger smiley effect for error5
+
     if (id === 'error5') {
         let closeButton = document.createElement("button");
         closeButton.classList.add("close-button");
         closeButton.innerText = "Click here to claim";
         closeButton.onclick = function() {
-            triggerRandomSmileyEffect(); // Trigger the random smiley effect when the button is clicked
+            triggerRandomSmileyEffect(); 
         };
-        content.appendChild(closeButton); // Add button to the content section
+        content.appendChild(closeButton); 
     }
 
-    // Function to trigger the smiley effect
     function triggerRandomSmileyEffect() {
-        let smileyCount = 10000; // Number of smiley images to show randomly
-        let smileyWidth = 100; // Width of each smiley image (adjust as necessary)
-        let smileyHeight = 100; // Height of each smiley image (adjust as necessary)
-        let delay = .5; // Delay between each smiley appearing (in milliseconds)
+        let smileyCount = 10000; 
+        let smileyWidth = 100; 
+        let smileyHeight = 100; 
+        let delay = .5; 
 
         for (let i = 0; i < smileyCount; i++) {
             setTimeout(function() {
                 let smiley = document.createElement("img");
-                smiley.src = "images/smiley.png"; // Path to your smiley image
+                smiley.src = "images/smiley.png"; 
                 smiley.classList.add("random-smiley");
 
-                // Random position on the screen
+
                 let randomX = Math.random() * (window.innerWidth - smileyWidth);
                 let randomY = Math.random() * (window.innerHeight - smileyHeight);
 
                 smiley.style.left = `${randomX}px`;
                 smiley.style.top = `${randomY}px`;
-                smiley.style.zIndex = 9999; // Make sure smileys are on top of everything
+                smiley.style.zIndex = 9999; 
 
-                document.body.appendChild(smiley); // Add the smiley to the body
-            }, i * delay); // Delay each smiley by 50ms
+                document.body.appendChild(smiley); 
+            }, i * delay); 
         }
 
-        // Set a timeout to reset the page once the screen is full of smileys
         setTimeout(function() {
-            location.reload(); // This reloads the page, effectively "resetting" the site
-        }, smileyCount * delay + 0); // Give extra time after last smiley to finish, then reset the page
+            location.reload(); 
+        }, smileyCount * delay + 0); 
     }
 
     popup.appendChild(header);
     popup.appendChild(content);
     document.body.appendChild(popup);
 
-    // Only trigger glitch effect after 5 popups or for error5
+  
     if (id === 'error5') {
         playGlitchEffect();
         playErrorSound();
@@ -118,10 +118,10 @@ function openPopup(id, title, message, imgSrc) {
 
     makeDraggable(popup);
 
-    // Increment popup count
+
     popupCount++;
 
-    // If 20 popups are opened, show the blue screen
+
     if (popupCount >= 30) {
         showBlueScreen();
     }
@@ -138,17 +138,17 @@ function closePopup(id) {
     if (popup) popup.remove();
     closedPopupsCount++;
 
-    // Stop the sound if the popup being closed is error3
+
     if (id === "error3") {
         audio.pause();
-        audio.currentTime = 0; // Reset the sound position
+        audio.currentTime = 0; 
     }
 
-    // Every 5 popups closed, play sound and glitch effect, if not already played
+
     if (closedPopupsCount % 5 === 0 && !glitchPlayed) {
         playErrorSound();
         playGlitchEffect();
-        glitchPlayed = true;  // Prevent multiple glitch effects from being played continuously
+        glitchPlayed = true;  
     }
 
     triggerChat(id);
@@ -161,7 +161,7 @@ function closePopup(id) {
     }
 }
 
-// New function to guarantee exactly one or two popups
+
 function maybeOpenOneOrTwoPopups() {
     let popups = [
         { id: 'error3', title: ' ', message: ' ', img: 'images/fortune.gif' },
@@ -171,9 +171,9 @@ function maybeOpenOneOrTwoPopups() {
         { id: 'error7', title: ' ', message: ' ', img: 'images/date-ai.png' }
     ];
 
-    let numPopupsToOpen = Math.floor(Math.random() * 2) + 1;  // Randomly choose 1 or 2 popups
+    let numPopupsToOpen = Math.floor(Math.random() * 2) + 1;  
 
-    // Open exactly one or two popups
+
     for (let i = 0; i < numPopupsToOpen; i++) {
         let selectedPopup = popups[Math.floor(Math.random() * popups.length)];
         openPopup(selectedPopup.id, selectedPopup.title, selectedPopup.message, selectedPopup.img);
@@ -242,7 +242,7 @@ function showBlueScreen() {
     blueScreen.style.background = 'url("images/bluescreen.png") no-repeat center center';
     blueScreen.style.backgroundSize = 'cover';
     blueScreen.style.zIndex = '10000';
-    blueScreen.style.pointerEvents = 'none';  // Block interaction
+    blueScreen.style.pointerEvents = 'none';  
     document.body.appendChild(blueScreen);
 
     setTimeout(() => {

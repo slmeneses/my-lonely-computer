@@ -80,19 +80,19 @@ body {
 
 .chat-bubble {
     position: absolute;
-    background: linear-gradient(to bottom, #FFFF99, #FFCC00); /* Yellow gradient */
+    background: linear-gradient(to bottom, #FFFF99, #FFCC00); 
     padding: 20px;
     border-radius: 15px;
     bottom: 40px;
     right: 40px;
     font-family: 'Tahoma';
     font-size: 20px;
-    border: 2px solid #FFD700; /* Gold border */
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); /* Soft shadow for 3D effect */
+    border: 2px solid #FFD700; 
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); 
     animation: fadeOut 3s ease-in-out forwards;
 }
 
-/* Optional: Add a tail */
+
 .chat-bubble::after {
     content: '';
     position: absolute;
@@ -100,7 +100,7 @@ body {
     right: 20px;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-top: 10px solid #FFFF99; /* Tail color matches bubble */
+    border-top: 10px solid #FFFF99; 
 }
 
 
@@ -119,36 +119,36 @@ body {
 }
 
 .popup .close-button {
-    background: linear-gradient(to bottom, #e0e0e0, #a9a9a9); /* Gradient for that glossy effect */
-    color: #333; /* Dark text for better readability */
-    border: 2px solid #7d7d7d; /* Sharp border for a more pronounced effect */
+    background: linear-gradient(to bottom, #e0e0e0, #a9a9a9); 
+    color: #333; 
+    border: 2px solid #7d7d7d; 
     padding: 10px 20px;
     font-size: 14px;
-    border-radius: 4px; /* Slightly sharper corners */
+    border-radius: 4px; 
     cursor: pointer;
-    margin-top: 10px; /* Space from content */
+    margin-top: 10px; 
     display: block;
-    width: 50%; /* Button spans 50% of the popup */
-    text-align: center; /* Center the text */
+    width: 50%; 
+    text-align: center; 
     font-weight: bold;
-    margin-left: auto; /* Center the button */
-    margin-right: auto; /* Center the button */
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Soft shadow to give it depth */
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5); /* Subtle text shadow */
+    margin-left: auto; 
+    margin-right: auto; 
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); 
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5); 
 }
 
 .popup .close-button:hover {
-    background: linear-gradient(to bottom, #d0d0d0, #909090); /* Hover gradient for a more interactive feel */
-    border-color: #6d6d6d; /* Darker border on hover */
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Deeper shadow on hover for more 3D effect */
-    color: #000; /* Darker text color for contrast */
+    background: linear-gradient(to bottom, #d0d0d0, #909090); 
+    border-color: #6d6d6d; 
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); 
+    color: #000; 
 }
 
 
 .random-smiley {
     position: absolute;
-    width: 50px; /* Adjust size of the smiley image */
+    width: 50px; 
     height: 50px;
     object-fit: contain;
-    pointer-events: none; /* Ensure smileys don't interfere with clicks */
+    pointer-events: none; 
 }
